@@ -84,28 +84,28 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
 
   return (
     <div className="fixed inset-0 z-[9999] overflow-y-auto bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden border border-slate-200">
+      <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden border border-[#b8d4f0] dark:border-slate-800">
         
         {/* Modal Header */}
-        <div className="px-5 py-3.5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+        <div className="px-5 py-3.5 border-b border-[#cbdff2] dark:border-slate-800 flex items-center justify-between bg-gradient-to-r from-[#dbeafe] via-[#e8f2fc] to-[#dbeafe] dark:bg-slate-900">
           <div className="flex items-center gap-3">
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-mono text-sm font-bold text-slate-900">
+                <span className="font-mono text-sm font-extrabold text-[#002b5c] dark:text-blue-300">
                   Caso {formData.id}
                 </span>
-                <span className="text-xs text-slate-500 font-medium">
+                <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold">
                   · {formData.agravo}
                 </span>
                 {formData.pessoasComLesoes === 'Sim' && (
-                  <span className="text-[11px] font-semibold text-rose-700 bg-rose-100 px-2 py-0.5 rounded flex items-center gap-1">
-                    <ShieldAlert className="w-3 h-3" />
+                  <span className="text-[11px] font-bold text-rose-800 bg-rose-200/90 dark:bg-rose-950 px-2 py-0.5 rounded flex items-center gap-1 border border-rose-300">
+                    <ShieldAlert className="w-3 h-3 text-rose-600" />
                     <span>Alerta VE Ativo</span>
                   </span>
                 )}
               </div>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Paciente: <strong className="text-slate-700">{formData.animalNome}</strong> · Tutor: {formData.tutorNome} ({formData.tutorBairro})
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                Paciente: <strong className="text-slate-900 dark:text-slate-200">{formData.animalNome}</strong> · Tutor: {formData.tutorNome} ({formData.tutorBairro})
               </p>
             </div>
           </div>
@@ -113,14 +113,14 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.print()}
-              className="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-200 rounded transition-colors cursor-pointer"
+              className="p-1.5 text-slate-600 hover:text-[#002b5c] hover:bg-white/80 rounded-lg transition-colors cursor-pointer"
               title="Imprimir Ficha de Investigação"
             >
               <Printer className="w-4 h-4" />
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-200 rounded transition-colors cursor-pointer"
+              className="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-white/80 rounded-lg transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -128,13 +128,13 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
         </div>
 
         {/* Tab Selection */}
-        <div className="flex border-b border-slate-200 px-5 gap-4 text-xs font-medium bg-white">
+        <div className="flex border-b border-[#cbdff2] dark:border-slate-800 px-5 gap-4 text-xs font-semibold bg-[#eef5fc] dark:bg-slate-900">
           <button
             onClick={() => setActiveTab('investigacao')}
             className={`py-2.5 border-b-2 cursor-pointer transition-colors ${
               activeTab === 'investigacao'
-                ? 'border-emerald-700 text-emerald-800 font-semibold'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-[#002b5c] text-[#002b5c] font-bold'
+                : 'border-transparent text-slate-600 hover:text-slate-900'
             }`}
           >
             Ficha do Biólogo (Investigação)
