@@ -49,25 +49,25 @@ echo "Concluído! Os arquivos estão acessíveis na rede municipal interna com c
       </div>
 
       {/* Interactive Decoder Tool */}
-      <div className="bg-white border border-slate-200 rounded-lg p-5 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+      <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] border border-[#b8d4f0] rounded-xl p-5 space-y-4 shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#cbdff2] pb-3">
           <div>
-            <h4 className="text-sm font-semibold text-slate-900 flex items-center gap-2">
-              <Paperclip className="w-4 h-4 text-emerald-700" />
+            <h4 className="text-sm font-bold text-[#002b5c] flex items-center gap-2">
+              <Paperclip className="w-4 h-4 text-blue-600" />
               <span>Decodificador de Anexos LimeSurvey em Tempo Real</span>
             </h4>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-slate-600 mt-0.5">
               Cole abaixo a sequência de caracteres ou o código da célula do CSV para extrair as fotos e gerar os caminhos exatos no servidor.
             </p>
           </div>
 
           <div className="flex items-center gap-2 text-xs">
-            <span className="text-slate-500 font-medium">ID do Questionário:</span>
+            <span className="text-slate-600 font-semibold">ID do Questionário:</span>
             <input
               type="text"
               value={surveyId}
               onChange={e => setSurveyId(e.target.value)}
-              className="w-20 px-2 py-1 bg-slate-50 border border-slate-300 rounded font-mono text-center text-xs font-bold text-slate-800"
+              className="w-20 px-2 py-1 bg-white border border-[#b8d4f0] rounded-lg font-mono text-center text-xs font-bold text-[#002b5c] shadow-2xs"
             />
           </div>
         </div>
