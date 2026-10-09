@@ -370,7 +370,7 @@ export default function App() {
       <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-4 px-4 text-xs text-slate-500 dark:text-slate-400 text-center transition-colors">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>
-            SIVZ Sorocaba · Sistema de Vigilância e Investigação de Zoonoses
+            SIVZOO Sorocaba · Sistema de Vigilância e Investigação de Zoonoses
           </span>
           <span className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
             Prefeitura Municipal de Sorocaba · Secretaria da Saúde · Divisão de Zoonoses
