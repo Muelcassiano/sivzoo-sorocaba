@@ -117,15 +117,15 @@ export async function sincronizarRespostasLimeSurvey(surveyId = 673263) {
   return (
     <div className="space-y-6">
       {/* Resposta Direta às Dúvidas do Usuário */}
-      <div className="bg-white border border-slate-200 rounded-lg p-5">
-        <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-3">
-          <HelpCircle className="w-5 h-5 text-emerald-700" />
+      <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] border border-[#b8d4f0] rounded-xl p-5 shadow-xs">
+        <h3 className="text-base font-extrabold text-[#002b5c] flex items-center gap-2 mb-3">
+          <HelpCircle className="w-5 h-5 text-blue-600" />
           <span>Esclarecimento Técnico às Suas Dúvidas Principais</span>
         </h3>
 
         <div className="space-y-4 text-xs text-slate-700">
           {/* Pergunta 1 */}
-          <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg space-y-2">
+          <div className="p-4 bg-white/90 border border-[#c4daf0] rounded-lg space-y-2 shadow-2xs">
             <h4 className="font-bold text-slate-900 text-xs flex items-center gap-1.5">
               <span>1. Devo criar as perguntas dos biólogos dentro do LimeSurvey (ocultas) ou numa aplicação/tabela separada?</span>
             </h4>
