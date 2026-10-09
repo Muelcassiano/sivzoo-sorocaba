@@ -1,5 +1,5 @@
 {
-  "name": "SIVZ Sorocaba - Sistema de Vigilância e Investigação de Zoonoses",
+  "name": "SIVZ Sorocaba - Sistema de Investigação e Vigilância de Zoonoses",
   "description": "Plataforma de gestão epidemiológica, investigação técnica e dashboards analíticos para a Divisão de Zoonoses de Sorocaba integrada ao LimeSurvey em conformidade com a LGPD.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
