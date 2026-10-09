@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button 
               onClick={() => setActiveTab('dashboard')} 
               className="flex items-center gap-3 text-left group cursor-pointer focus-visible:outline-none"
-              aria-label="Página Inicial SIVZ Sorocaba"
+              aria-label="Página Inicial SIVZOO Sorocaba"
             >
               <div className="text-white flex items-center gap-2.5">
                 <LogoPrefeituraSorocaba className="h-10 w-auto drop-shadow-xs" />
@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               <div className="hidden lg:block border-l border-white/20 pl-3">
                 <span className="text-xs font-bold text-white tracking-tight block">
-                  SIVZ · Sorocaba
+                  SIVZOO · Sorocaba
                 </span>
                 <span className="text-[10px] text-blue-100/90 font-medium block">
                   Sistema de Investigação de Zoonoses
