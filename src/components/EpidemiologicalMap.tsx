@@ -524,41 +524,41 @@ export const EpidemiologicalMap: React.FC<EpidemiologicalMapProps> = ({
     <div className={isFullscreen ? "fixed inset-0 z-[2000] bg-slate-950 flex flex-col p-3 sm:p-4 overflow-hidden text-slate-100" : "space-y-4"}>
       {/* Top Header & Switcher (only shown when not in fullscreen mode) */}
       {!isFullscreen && (
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+        <div className="bg-gradient-to-r from-[#f8fbfe] via-[#edf4fc] to-[#f8fbfe] dark:bg-slate-900 border border-[#b8d4f0] dark:border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-emerald-600 dark:text-emerald-500" />
+              <h2 className="text-base font-extrabold text-[#002b5c] dark:text-slate-100 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-blue-600 dark:text-emerald-500" />
                 <span>Mapeamento Geoespacial de Focos & Abrangência Territorial</span>
               </h2>
-              <span className="text-[11px] font-mono bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
+              <span className="text-[11px] font-mono bg-blue-100 dark:bg-emerald-950 text-[#002b5c] dark:text-emerald-400 px-2.5 py-0.5 rounded border border-blue-300 dark:border-emerald-800 font-bold">
                 OpenStreetMap + GeoJSON UBS
               </span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
               Visualização cartográfica oficial das Unidades Básicas de Saúde, zonas circulares de cobertura sanitária e {filteredCasos.length} focos ativos de zoonoses em Sorocaba.
             </p>
           </div>
 
           {/* Mode Switcher */}
           <div className="flex items-center gap-2">
-            <div className="inline-flex rounded-md border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 p-0.5 text-xs font-medium">
+            <div className="inline-flex rounded-lg border border-[#cbdff2] dark:border-slate-700 bg-[#e2ecf7] dark:bg-slate-800 p-0.5 text-xs font-medium">
               <button
                 onClick={() => setViewMode('map')}
-                className={`px-3 py-1.5 rounded transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
                   viewMode === 'map'
-                    ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-xs font-semibold'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                    ? 'bg-[#002b5c] text-white shadow-xs font-bold'
+                    : 'text-slate-700 dark:text-slate-400 hover:text-[#002b5c]'
                 }`}
               >
                 Mapa Interativo
               </button>
               <button
                 onClick={() => setViewMode('matrix')}
-                className={`px-3 py-1.5 rounded transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
                   viewMode === 'matrix'
-                    ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-xs font-semibold'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                    ? 'bg-[#002b5c] text-white shadow-xs font-bold'
+                    : 'text-slate-700 dark:text-slate-400 hover:text-[#002b5c]'
                 }`}
               >
                 Ranking de Risco por Bairro
