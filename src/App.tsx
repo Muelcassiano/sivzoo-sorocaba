@@ -168,7 +168,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors ${getFontSizeClass()} ${isHighContrast ? 'contrast-125' : ''}`}>
+    <div className={`min-h-screen bg-[#edf3f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors ${getFontSizeClass()} ${isHighContrast ? 'contrast-125' : ''}`}>
       {/* Acessibilidade Municipal (e-MAG / WCAG) */}
       <AccessibilityBar
         isDarkMode={isDarkMode}
@@ -195,24 +195,24 @@ export default function App() {
       />
 
       {/* Municipal Context Header */}
-      <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-2.5 px-4 sm:px-6 lg:px-8 transition-colors">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-            <span className="font-semibold text-slate-800 dark:text-slate-200">Prefeitura de Sorocaba</span>
-            <span aria-hidden="true">·</span>
-            <span>Secretaria da Saúde</span>
-            <span aria-hidden="true">·</span>
-            <span>Divisão de Zoonoses</span>
-            <span aria-hidden="true">·</span>
-            <span className="text-emerald-700 dark:text-emerald-400 font-medium">Conformidade LGPD (Servidores Municipais)</span>
+      <div className="bg-gradient-to-r from-[#dbeafe] via-[#e9f2fb] to-[#dbeafe] dark:bg-slate-900 border-b border-[#b8d4f0] dark:border-slate-800 py-2.5 px-3 sm:px-6 lg:px-8 transition-colors shadow-2xs">
+        <div className="max-w-[1880px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 flex-wrap">
+            <span className="font-extrabold text-[#002b5c] dark:text-blue-300 tracking-tight">Prefeitura de Sorocaba</span>
+            <span aria-hidden="true" className="text-blue-300 dark:text-slate-600">·</span>
+            <span className="font-semibold text-slate-800 dark:text-slate-300">Secretaria da Saúde</span>
+            <span aria-hidden="true" className="text-blue-300 dark:text-slate-600">·</span>
+            <span className="font-semibold text-slate-800 dark:text-slate-300">Divisão de Zoonoses</span>
+            <span aria-hidden="true" className="text-blue-300 dark:text-slate-600">·</span>
+            <span className="text-emerald-900 dark:text-emerald-300 font-bold bg-emerald-100/90 dark:bg-emerald-950/70 px-2.5 py-0.5 rounded border border-emerald-300 dark:border-emerald-800">Conformidade LGPD (Servidores Municipais)</span>
           </div>
 
-          <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400">
-            <span>Base 2026: <strong className="text-slate-800 dark:text-slate-200 font-mono">{casos.length} fichas oficiais</strong></span>
-            <span aria-hidden="true">·</span>
+          <div className="flex items-center gap-3 text-slate-700 dark:text-slate-400">
+            <span>Base Oficial: <strong className="text-[#002b5c] dark:text-slate-100 font-mono font-bold">{casos.length} fichas notificadas</strong></span>
+            <span aria-hidden="true" className="text-blue-300 dark:text-slate-600">·</span>
             <button
               onClick={handleResetData}
-              className="text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-[#0a4b8f] hover:text-[#002b5c] dark:text-slate-400 dark:hover:text-slate-200 inline-flex items-center gap-1 cursor-pointer font-medium transition-colors"
               title="Restaurar base original de 582 fichas de Sorocaba"
             >
               <RefreshCw className="w-3 h-3" />
@@ -223,7 +223,7 @@ export default function App() {
       </div>
 
       {/* Main Content Area */}
-      <main id="main-content" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <main id="main-content" className="flex-1 max-w-[1880px] w-full mx-auto px-2 sm:px-4 lg:px-6 py-6">
         
         {/* TAB: DASHBOARD */}
         {activeTab === 'dashboard' && (
@@ -240,17 +240,17 @@ export default function App() {
               isDarkMode={isDarkMode}
             />
 
-            <div>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div className="w-full">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 bg-gradient-to-r from-[#e4effb] via-[#edf5fc] to-[#e4effb] dark:bg-slate-900/90 p-3 rounded-lg border border-[#c4daf0] dark:border-slate-800 shadow-2xs">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  <h2 className="text-sm font-bold text-[#002b5c] dark:text-slate-100">
                     Fila Operacional de Notificações & Acompanhamentos
                   </h2>
-                  <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                  <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded bg-[#002b5c] text-white dark:bg-slate-800 dark:text-slate-200 shadow-2xs">
                     {casosDashboardTabela.length} {casosDashboardTabela.length === 1 ? 'registro' : 'registros'}
                   </span>
                   {(dashboardYear !== 2026 || dashboardAgravo !== 'Todos') && (
-                    <span className="text-xs text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5">
+                    <span className="text-xs text-blue-900 dark:text-emerald-400 bg-blue-100/80 dark:bg-emerald-950/60 px-2 py-0.5 rounded border border-blue-300 dark:border-emerald-800 flex items-center gap-1.5 font-medium">
                       <span>Filtro ativo: {dashboardYear !== 2026 ? `Ano ${dashboardYear}` : ''} {dashboardAgravo !== 'Todos' ? `· ${dashboardAgravo}` : ''}</span>
                       <button 
                         onClick={() => {
@@ -268,9 +268,10 @@ export default function App() {
                 </div>
                 <button
                   onClick={() => setActiveTab('investigacoes')}
-                  className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold hover:underline cursor-pointer"
+                  className="text-xs text-[#0a4b8f] dark:text-emerald-400 font-bold hover:underline cursor-pointer flex items-center gap-1"
                 >
-                  Abrir tabela completa com filtros avançados &rarr;
+                  <span>Abrir tabela completa com filtros avançados</span>
+                  <span>&rarr;</span>
                 </button>
               </div>
 
