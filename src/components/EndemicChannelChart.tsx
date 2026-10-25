@@ -198,12 +198,16 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
   // Dimensões do SVG: desktop mantém o desenho aprovado (650 × 140).
   // No celular, usamos uma área de desenho mais estreita e alta para que
   // fontes, pontos e linhas não sejam reduzidos junto com o container.
+  // No desktop semanal, só a área dos rótulos cresce: a área do gráfico
+  // continua exatamente com a mesma altura do desenho aprovado.
+  const isDesktopWeeklyView = !isCompactViewport && points.length > 12;
+  const useAngledXLabels = isCompactViewport || isDesktopWeeklyView;
   const svgWidth = isCompactViewport ? 360 : 650;
-  const svgHeight = isCompactViewport ? 210 : 140;
+  const svgHeight = isCompactViewport ? 210 : isDesktopWeeklyView ? 160 : 140;
   const padLeft = isCompactViewport ? 36 : 45;
   const padRight = isCompactViewport ? 12 : 25;
   const padTop = isCompactViewport ? 14 : 12;
-  const padBottom = isCompactViewport ? 46 : 22;
+  const padBottom = isCompactViewport ? 46 : isDesktopWeeklyView ? 42 : 22;
 
   const chartW = svgWidth - padLeft - padRight;
   const chartH = svgHeight - padTop - padBottom;
@@ -603,12 +607,13 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
             const cx = getX(idx);
             const cy = getY(p.realCount);
             const isHovered = hoveredPoint?.label === p.label;
-            const showXAxisLabel =
-              !isCompactViewport ||
-              points.length <= 12 ||
-              idx % 3 === 0 ||
-              idx === points.length - 1;
-            const xLabelY = padTop + chartH + (isCompactViewport ? 28 : 18);
+            const showXAxisLabel = isCompactViewport
+              ? points.length <= 12 || idx % 3 === 0 || idx === points.length - 1
+              : isDesktopWeeklyView
+                ? idx === points.length - 1 ||
+                  (idx % 2 === 0 && idx !== points.length - 2)
+                : true;
+            const xLabelY = padTop + chartH + (useAngledXLabels ? 28 : 18);
 
             return (
               <g
@@ -657,8 +662,8 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                   <text
                     x={cx}
                     y={xLabelY}
-                    textAnchor={isCompactViewport ? 'end' : 'middle'}
-                    transform={isCompactViewport ? `rotate(-40 ${cx} ${xLabelY})` : undefined}
+                    textAnchor={useAngledXLabels ? 'end' : 'middle'}
+                    transform={useAngledXLabels ? `rotate(-40 ${cx} ${xLabelY})` : undefined}
                     className={`${isCompactViewport ? 'text-[11.5px]' : 'text-[11px]'} font-sans font-medium transition-colors ${
                       isHovered
                         ? 'fill-blue-600 dark:fill-blue-400 font-bold'
