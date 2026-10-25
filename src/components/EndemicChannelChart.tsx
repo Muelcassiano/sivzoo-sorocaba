@@ -181,13 +181,13 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
     return allWeeks;
   }, [activeDataset, selectedAgravo, viewType, selectedYear, periodoMensal, periodoSemanal, baselineConfig]);
 
-  // Scaled dimensions for the SVG Line Chart - menor largura para caber na tela
+  // Scaled dimensions for the SVG Line Chart - altura reduzida pela metade
   const svgWidth = 650;
-  const svgHeight = 280;
+  const svgHeight = 140;
   const padLeft = 45;
   const padRight = 25;
-  const padTop = 25;
-  const padBottom = 40;
+  const padTop = 12;
+  const padBottom = 22;
 
   const chartW = svgWidth - padLeft - padRight;
   const chartH = svgHeight - padTop - padBottom;
@@ -309,9 +309,9 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
   const isAlert = latestPoint && latestPoint.realCount > latestPoint.alerta && !isEpidemic;
 
   return (
-    <div className={`bg-gradient-to-b from-[#f8fbfe] via-[#f1f6fc] to-[#eaf2fa] dark:from-[#0f172a] dark:via-[#0f172a] dark:to-[#1e293b] border border-[#b8d4f0] dark:border-slate-700 rounded-xl p-4 sm:p-5 shadow-sm transition-colors`}>
+    <div className={`bg-gradient-to-b from-[#f8fbfe] via-[#f1f6fc] to-[#eaf2fa] dark:from-[#0f172a] dark:via-[#0f172a] dark:to-[#1e293b] border border-[#b8d4f0] dark:border-slate-700 rounded-xl p-3 sm:p-4 shadow-sm transition-colors`}>
       {/* Chart Top Header & Controls */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#cbdff2] dark:border-slate-700">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 pb-2 border-b border-[#cbdff2] dark:border-slate-700">
         <div>
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
@@ -389,7 +389,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
       </div>
 
       {/* Secondary Controls: Period Filter according to View Type */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 py-2">
         {/* Dynamic Period Filter Buttons */}
         <div className="flex flex-wrap items-center gap-1.5">
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400 mr-1">Recorte:</span>
@@ -517,7 +517,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
       <div className="relative mt-2 overflow-x-auto">
         <svg
           viewBox={`0 0 ${svgWidth} ${svgHeight}`}
-          className="w-full h-auto min-w-[720px] select-none"
+          className="w-full h-auto select-none"
         >
           {/* Background grid lines */}
           {yTicks.map(val => (
@@ -680,7 +680,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
       </div>
 
       {/* Summary Footer */}
-      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+      <div className="mt-2 pt-2 border-t border-slate-100 dark:border-slate-700 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400">
         <div>
           <span>Total no Recorte: <strong className="text-slate-800 dark:text-slate-100 font-mono font-semibold">{totalCasosFiltro} casos</strong></span>
           <span className="mx-2" aria-hidden="true">·</span>
