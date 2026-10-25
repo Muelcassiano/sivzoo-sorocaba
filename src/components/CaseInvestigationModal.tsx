@@ -84,10 +84,10 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
 
   return (
     <div className="fixed inset-0 z-[9999] overflow-y-auto bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-      <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden border border-[#b8d4f0] dark:border-slate-800">
+      <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden border border-[#b8d4f0] dark:border-slate-700">
         
         {/* Modal Header */}
-        <div className="px-5 py-3.5 border-b border-[#cbdff2] dark:border-slate-800 flex items-center justify-between bg-gradient-to-r from-[#dbeafe] via-[#e8f2fc] to-[#dbeafe] dark:bg-slate-900">
+        <div className="px-5 py-3.5 border-b border-[#cbdff2] dark:border-slate-700 flex items-center justify-between bg-gradient-to-r from-[#dbeafe] via-[#e8f2fc] to-[#dbeafe] dark:from-slate-800 dark:via-slate-800 dark:to-slate-800">
           <div className="flex items-center gap-3">
             <div>
               <div className="flex items-center gap-2">
@@ -113,14 +113,14 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.print()}
-              className="p-1.5 text-slate-600 hover:text-[#002b5c] hover:bg-white/80 rounded-lg transition-colors cursor-pointer"
+              className="p-1.5 text-slate-600 dark:text-slate-300 hover:text-[#002b5c] dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer"
               title="Imprimir Ficha de Investigação"
             >
               <Printer className="w-4 h-4" />
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-white/80 rounded-lg transition-colors cursor-pointer"
+              className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -133,8 +133,8 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
             onClick={() => setActiveTab('investigacao')}
             className={`py-2.5 border-b-2 cursor-pointer transition-colors ${
               activeTab === 'investigacao'
-                ? 'border-[#002b5c] text-[#002b5c] font-bold'
-                : 'border-transparent text-slate-600 hover:text-slate-900'
+                ? 'border-[#002b5c] dark:border-blue-400 text-[#002b5c] dark:text-slate-100 font-bold'
+                : 'border-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Ficha do Biólogo (Investigação)
@@ -144,8 +144,8 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
             onClick={() => setActiveTab('original')}
             className={`py-2.5 border-b-2 cursor-pointer transition-colors ${
               activeTab === 'original'
-                ? 'border-emerald-700 text-emerald-800 font-semibold'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-emerald-700 dark:border-emerald-400 text-emerald-800 dark:text-emerald-300 font-semibold'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
             }`}
           >
             Entrada LimeSurvey & Anexos ({formData.anexos?.length || 0})
@@ -155,8 +155,8 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
             onClick={() => setActiveTab('ve')}
             className={`py-2.5 border-b-2 cursor-pointer transition-colors flex items-center gap-1.5 ${
               activeTab === 've'
-                ? 'border-rose-600 text-rose-800 font-semibold'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-rose-600 dark:border-rose-400 text-rose-800 dark:text-rose-300 font-semibold'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
             }`}
           >
             <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
@@ -167,8 +167,8 @@ Registro Profissional: ${formData.analistaRegistro || 'CRBio / CRMV'}`;
             onClick={() => setActiveTab('email')}
             className={`py-2.5 border-b-2 cursor-pointer transition-colors flex items-center gap-1 ${
               activeTab === 'email'
-                ? 'border-emerald-700 text-emerald-800 font-semibold'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-emerald-700 dark:border-emerald-400 text-emerald-800 dark:text-emerald-300 font-semibold'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
             }`}
           >
             <Mail className="w-3.5 h-3.5" />

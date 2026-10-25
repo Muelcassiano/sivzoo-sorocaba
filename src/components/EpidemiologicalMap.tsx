@@ -524,7 +524,7 @@ export const EpidemiologicalMap: React.FC<EpidemiologicalMapProps> = ({
     <div className={isFullscreen ? "fixed inset-0 z-[2000] bg-slate-950 flex flex-col p-3 sm:p-4 overflow-hidden text-slate-100" : "space-y-4"}>
       {/* Top Header & Switcher (only shown when not in fullscreen mode) */}
       {!isFullscreen && (
-        <div className="bg-gradient-to-r from-[#f8fbfe] via-[#edf4fc] to-[#f8fbfe] dark:bg-slate-900 border border-[#b8d4f0] dark:border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+        <div className="bg-gradient-to-r from-[#f8fbfe] via-[#edf4fc] to-[#f8fbfe] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border border-[#b8d4f0] dark:border-slate-700 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-base font-extrabold text-[#002b5c] dark:text-slate-100 flex items-center gap-2">

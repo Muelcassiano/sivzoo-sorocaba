@@ -169,6 +169,8 @@ export default function App() {
 
   return (
     <div className={`min-h-screen bg-[#edf3f8] dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors ${getFontSizeClass()} ${isHighContrast ? 'high-contrast' : ''}`}>
+      {/* Tarja fixa: acessibilidade + identidade/menu municipal */}
+      <div className="sticky top-0 z-50">
       {/* Acessibilidade Municipal (e-MAG / WCAG) */}
       <AccessibilityBar
         isDarkMode={isDarkMode}
@@ -193,6 +195,7 @@ export default function App() {
         totalAlertsCount={casos.length}
         totalHumanLesionsCount={totalHumanAlerts}
       />
+      </div>
 
       {/* Municipal Context Header */}
       <div className="bg-gradient-to-r from-[#dbeafe] via-[#e9f2fb] to-[#dbeafe] dark:from-[#1e293b] dark:via-[#0f172a] dark:to-[#1e293b] border-b border-[#b8d4f0] dark:border-slate-700 py-2.5 px-3 sm:px-6 lg:px-8 transition-colors shadow-2xs">
@@ -367,12 +370,12 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-[#0f172a] border-t border-slate-200 dark:border-slate-700 py-4 px-4 text-xs text-slate-500 dark:text-slate-400 text-center transition-colors">
+      <footer className="bg-[#003875] dark:bg-[#0f172a] border-t border-[#00224a] dark:border-slate-700 py-4 px-4 text-xs text-blue-100 dark:text-slate-400 text-center transition-colors">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>
             SIVZOO Sorocaba · Sistema de Investigação e Vigilância de Zoonoses
           </span>
-          <span className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
+          <span className="font-mono text-[11px] text-blue-300 dark:text-slate-500">
             Prefeitura Municipal de Sorocaba · Secretaria da Saúde · Divisão de Zoonoses
           </span>
         </div>

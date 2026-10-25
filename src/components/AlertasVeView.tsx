@@ -130,8 +130,8 @@ export const AlertasVeView: React.FC<AlertasVeViewProps> = ({
               key={caso.id}
               className={`border rounded-xl p-4 flex flex-col justify-between transition-all shadow-xs hover:shadow-md ${
                 isNotified
-                  ? 'border-emerald-300 dark:border-emerald-900/60 bg-gradient-to-br from-[#f2fbf5] via-[#e8f7ee] to-[#ddf4e6] dark:bg-slate-900'
-                  : 'border-rose-400 dark:border-rose-900/80 bg-gradient-to-br from-[#fff0f3] via-[#ffe5e9] to-[#fed8de] dark:bg-rose-950/30'
+                  ? 'border-emerald-300 dark:border-emerald-800 bg-gradient-to-br from-[#f2fbf5] via-[#e8f7ee] to-[#ddf4e6] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900'
+                  : 'border-rose-400 dark:border-rose-800 bg-gradient-to-br from-[#fff0f3] via-[#ffe5e9] to-[#fed8de] dark:from-rose-950/50 dark:via-rose-950/30 dark:to-slate-900'
               }`}
             >
               <div>

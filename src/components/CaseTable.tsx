@@ -102,9 +102,9 @@ export const CaseTable: React.FC<CaseTableProps> = ({
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] dark:from-slate-900 dark:to-slate-900 border border-[#b8d4f0] dark:border-slate-800 rounded-xl overflow-hidden shadow-sm transition-colors">
+    <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border border-[#b8d4f0] dark:border-slate-700 rounded-xl overflow-hidden shadow-sm transition-colors">
       {/* Top Filter & Search Controls */}
-      <div className="p-3.5 sm:p-4 bg-gradient-to-r from-[#f1f6fc] via-[#eaf2fb] to-[#f1f6fc] dark:bg-slate-900/90 border-b border-[#cbdff2] dark:border-slate-800 space-y-3">
+      <div className="p-3.5 sm:p-4 bg-gradient-to-r from-[#f1f6fc] via-[#eaf2fb] to-[#f1f6fc] dark:from-slate-800 dark:via-slate-800 dark:to-slate-800 border-b border-[#cbdff2] dark:border-slate-700 space-y-3">
         {/* Row 1: Search and Primary segmented tabs */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div className="relative flex-1 max-w-md">
@@ -240,7 +240,7 @@ export const CaseTable: React.FC<CaseTableProps> = ({
       <div className="overflow-x-auto w-full">
         <table className="w-full text-left text-xs border-collapse table-auto">
           <thead>
-            <tr className="bg-gradient-to-r from-[#dbeafe] via-[#e5f0fa] to-[#dbeafe] dark:bg-slate-800/80 border-b border-[#b8d4f0] dark:border-slate-800 text-[#002b5c] dark:text-blue-300 font-bold tracking-wide">
+            <tr className="bg-gradient-to-r from-[#dbeafe] via-[#e5f0fa] to-[#dbeafe] dark:from-slate-800 dark:via-slate-800 dark:to-slate-800 border-b border-[#b8d4f0] dark:border-slate-600 text-[#002b5c] dark:text-slate-100 font-bold tracking-wide">
               <th className="py-2.5 px-2.5 sm:px-3 whitespace-nowrap">ID / Data</th>
               <th className="py-2.5 px-2 sm:px-2.5 whitespace-nowrap">Agravo</th>
               <th className="py-2.5 px-2 sm:px-2.5">Animal & Espécie</th>
@@ -413,7 +413,7 @@ export const CaseTable: React.FC<CaseTableProps> = ({
       </div>
 
       {/* Pagination Footer */}
-      <div className="p-3 border-t border-[#cbdff2] dark:border-slate-800 bg-gradient-to-r from-[#edf4fc] via-[#f1f6fc] to-[#edf4fc] dark:bg-slate-800/60 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+      <div className="p-3 border-t border-[#cbdff2] dark:border-slate-700 bg-gradient-to-r from-[#edf4fc] via-[#f1f6fc] to-[#edf4fc] dark:from-slate-800 dark:via-slate-800 dark:to-slate-800 flex items-center justify-between text-xs text-slate-600 dark:text-slate-300">
         <div>
           Exibindo <span className="font-bold text-[#002b5c] dark:text-slate-200">{filteredCasos.length}</span> notificações filtradas
           {filtros.buscaTexto && ` para "${filtros.buscaTexto}"`}

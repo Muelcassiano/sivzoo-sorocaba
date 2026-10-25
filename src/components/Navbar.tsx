@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [showTechMenu, setShowTechMenu] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-gradient-to-r from-[#002b5c] via-[#003875] to-[#0a4b8f] dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-white border-b border-[#00224a] dark:border-slate-800 shadow-md shadow-blue-950/25 transition-colors">
+    <header className="relative z-40 bg-gradient-to-r from-[#002b5c] via-[#003875] to-[#0a4b8f] dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-white border-b border-[#00224a] dark:border-slate-800 shadow-md shadow-blue-950/25 transition-colors">
       <div className="max-w-[1880px] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Official Municipal Logos & Title */}

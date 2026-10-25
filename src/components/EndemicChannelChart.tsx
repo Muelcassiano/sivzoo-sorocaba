@@ -309,7 +309,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
   const isAlert = latestPoint && latestPoint.realCount > latestPoint.alerta && !isEpidemic;
 
   return (
-    <div className={`bg-gradient-to-b from-[#f8fbfe] via-[#f1f6fc] to-[#eaf2fa] dark:from-[#0f172a] dark:via-[#0f172a] dark:to-[#1e293b] border border-[#b8d4f0] dark:border-slate-700 rounded-xl p-3 sm:p-4 shadow-sm transition-colors`}>
+    <div className={`bg-gradient-to-b from-[#f8fbfe] via-[#f1f6fc] to-[#eaf2fa] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border border-[#b8d4f0] dark:border-slate-700 rounded-xl p-3 sm:p-4 shadow-sm transition-colors`}>
       {/* Chart Top Header & Controls */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 pb-2 border-b border-[#cbdff2] dark:border-slate-700">
         <div>
@@ -535,7 +535,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 x={padLeft - 8}
                 y={getY(val) + 4}
                 textAnchor="end"
-                className="text-[10px] fill-slate-400 dark:fill-slate-500 font-mono"
+                className="text-[10px] fill-slate-400 dark:fill-slate-300 font-mono"
               >
                 {val}
               </text>
@@ -638,7 +638,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                   className={`text-[11px] font-sans font-medium transition-colors ${
                     isHovered
                       ? 'fill-blue-600 dark:fill-blue-400 font-bold'
-                      : 'fill-slate-500 dark:fill-slate-400'
+                      : 'fill-slate-500 dark:fill-slate-300'
                   }`}
                 >
                   {p.label}

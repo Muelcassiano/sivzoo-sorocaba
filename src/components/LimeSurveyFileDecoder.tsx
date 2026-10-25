@@ -49,14 +49,14 @@ echo "Concluído! Os arquivos estão acessíveis na rede municipal interna com c
       </div>
 
       {/* Interactive Decoder Tool */}
-      <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] border border-[#b8d4f0] rounded-xl p-5 space-y-4 shadow-xs">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#cbdff2] pb-3">
+      <div className="bg-gradient-to-b from-[#f8fbfe] to-[#edf4fc] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border border-[#b8d4f0] dark:border-slate-700 rounded-xl p-5 space-y-4 shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#cbdff2] dark:border-slate-700 pb-3">
           <div>
-            <h4 className="text-sm font-bold text-[#002b5c] flex items-center gap-2">
+            <h4 className="text-sm font-bold text-[#002b5c] dark:text-slate-100 flex items-center gap-2">
               <Paperclip className="w-4 h-4 text-blue-600" />
               <span>Decodificador de Anexos LimeSurvey em Tempo Real</span>
             </h4>
-            <p className="text-xs text-slate-600 mt-0.5">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
               Cole abaixo a sequência de caracteres ou o código da célula do CSV para extrair as fotos e gerar os caminhos exatos no servidor.
             </p>
           </div>

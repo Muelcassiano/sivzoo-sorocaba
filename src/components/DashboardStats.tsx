@@ -76,7 +76,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
       {/* Primary KPI Grid (Reflecting the true filtered dataset by year and agravo) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 1: Total Geral */}
-        <div className="bg-gradient-to-br from-[#ebf3fb] via-[#e1ecf7] to-[#d4e4f5] dark:from-slate-900 dark:to-slate-900 border border-[#b4cfeb] dark:border-slate-800 p-4 rounded-xl shadow-xs hover:border-[#8bb5df] hover:shadow-md transition-all">
+        <div className="bg-gradient-to-br from-[#ebf3fb] via-[#e1ecf7] to-[#d4e4f5] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border border-[#b4cfeb] dark:border-slate-700 p-4 rounded-xl shadow-xs hover:border-[#8bb5df] dark:hover:border-blue-600 hover:shadow-md transition-all">
           <div className="flex items-center justify-between text-slate-700 dark:text-slate-400 text-xs font-semibold gap-1">
             <span className="truncate">
               Total de Fichas ({selectedYear})
@@ -106,7 +106,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
         {/* Card 2: Lesões em Humanos / Alerta VE */}
         <div 
           onClick={onFilterHumanLesions}
-          className="bg-gradient-to-br from-[#fff0f2] via-[#ffe3e7] to-[#fed4dc] dark:bg-rose-950/40 border-2 border-rose-400 dark:border-rose-800 p-4 rounded-xl hover:border-rose-500 dark:hover:border-rose-700 transition-all cursor-pointer group shadow-xs hover:shadow-md"
+          className="bg-gradient-to-br from-[#fff0f2] via-[#ffe3e7] to-[#fed4dc] dark:from-rose-950/50 dark:via-rose-950/30 dark:to-slate-900 border-2 border-rose-400 dark:border-rose-800 p-4 rounded-xl hover:border-rose-500 dark:hover:border-rose-600 transition-all cursor-pointer group shadow-xs hover:shadow-md"
         >
           <div className="flex items-center justify-between text-rose-900 dark:text-rose-300 text-xs font-bold">
             <span className="flex items-center gap-1.5">
@@ -133,7 +133,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
         {/* Card 3: Em Tratamento Ativo */}
         <div 
           onClick={onFilterActiveTreatment}
-          className="bg-gradient-to-br from-[#eef9f3] via-[#e2f5eb] to-[#d4efe1] dark:from-slate-900 dark:to-slate-900 border border-[#a4dbc0] dark:border-slate-800 p-4 rounded-xl hover:border-[#76c99f] dark:hover:border-blue-700 transition-all cursor-pointer shadow-xs hover:shadow-md group"
+          className="bg-gradient-to-br from-[#eef9f3] via-[#e2f5eb] to-[#d4efe1] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border border-[#a4dbc0] dark:border-slate-700 p-4 rounded-xl hover:border-[#76c99f] dark:hover:border-emerald-600 transition-all cursor-pointer shadow-xs hover:shadow-md group"
         >
           <div className="flex items-center justify-between text-emerald-900 dark:text-slate-400 text-xs font-semibold">
             <span>Em Tratamento Ativo</span>
@@ -157,7 +157,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
         {/* Card 4: Pendentes de Investigação */}
         <div 
           onClick={onFilterPending}
-          className="bg-gradient-to-br from-[#fffdf0] via-[#fef7db] to-[#fcf0c2] dark:from-slate-900 dark:to-slate-900 border border-[#ead58c] dark:border-slate-800 p-4 rounded-xl hover:border-[#dfc059] dark:hover:border-amber-700 transition-all cursor-pointer shadow-xs hover:shadow-md group"
+          className="bg-gradient-to-br from-[#fffdf0] via-[#fef7db] to-[#fcf0c2] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border border-[#ead58c] dark:border-slate-700 p-4 rounded-xl hover:border-[#dfc059] dark:hover:border-amber-600 transition-all cursor-pointer shadow-xs hover:shadow-md group"
         >
           <div className="flex items-center justify-between text-amber-900 dark:text-slate-400 text-xs font-semibold">
             <span>Em Investigação</span>
@@ -218,8 +218,8 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             onClick={() => onSelectAgravo(selectedAgravo === 'Esporotricose' ? 'Todos' : 'Esporotricose')}
             className={`p-3.5 rounded-xl cursor-pointer transition-all hover:shadow-md group shadow-xs ${
               selectedAgravo === 'Esporotricose'
-                ? 'border-2 border-orange-500 ring-2 ring-orange-400/40 bg-gradient-to-br from-[#ffedd5] to-[#fed7aa] dark:bg-orange-950/40'
-                : 'border border-orange-300/90 dark:border-slate-800 bg-gradient-to-br from-[#fff7ed] via-[#ffedd5] to-[#fed7aa]/40 dark:bg-slate-900 hover:border-orange-500'
+                ? 'border-2 border-orange-500 ring-2 ring-orange-400/40 bg-gradient-to-br from-[#ffedd5] to-[#fed7aa] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 dark:border-orange-500'
+                : 'border border-orange-300/90 dark:border-slate-700 bg-gradient-to-br from-[#fff7ed] via-[#ffedd5] to-[#fed7aa]/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 hover:border-orange-500'
             }`}
           >
             <div className="flex items-center justify-between">
@@ -233,7 +233,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             <p className="text-[11px] text-orange-900/80 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
               Predomínio felino. Lesões ulceradas em face, focinho e patas. Transmissão zoonótica ativa.
             </p>
-            <div className="mt-2 text-[10px] text-orange-800/80 dark:text-slate-500 flex items-center gap-1.5 font-medium border-t border-orange-200/80 pt-1.5">
+            <div className="mt-2 text-[10px] text-orange-800/80 dark:text-slate-400 flex items-center gap-1.5 font-medium border-t border-orange-200/80 dark:border-slate-700 pt-1.5">
               <span>{casosAno.filter(c => c.agravo === 'Esporotricose' && c.resultadoFinal.startsWith('Pos')).length} confirmados</span>
               <span aria-hidden="true" className="text-orange-400">·</span>
               <span className="text-rose-700 dark:text-rose-400 font-bold">{casosAno.filter(c => c.agravo === 'Esporotricose' && c.pessoasComLesoes === 'Sim').length} c/ lesão humana</span>
@@ -245,8 +245,8 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             onClick={() => onSelectAgravo(selectedAgravo === 'Leishmaniose' ? 'Todos' : 'Leishmaniose')}
             className={`p-3.5 rounded-xl cursor-pointer transition-all hover:shadow-md group shadow-xs ${
               selectedAgravo === 'Leishmaniose'
-                ? 'border-2 border-purple-500 ring-2 ring-purple-400/40 bg-gradient-to-br from-[#f3e8ff] to-[#e9d5ff] dark:bg-purple-950/40'
-                : 'border border-purple-300/90 dark:border-slate-800 bg-gradient-to-br from-[#faf5ff] via-[#f3e8ff] to-[#e9d5ff]/40 dark:bg-slate-900 hover:border-purple-500'
+                ? 'border-2 border-purple-500 ring-2 ring-purple-400/40 bg-gradient-to-br from-[#f3e8ff] to-[#e9d5ff] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 dark:border-purple-500'
+                : 'border border-purple-300/90 dark:border-slate-700 bg-gradient-to-br from-[#faf5ff] via-[#f3e8ff] to-[#e9d5ff]/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 hover:border-purple-500'
             }`}
           >
             <div className="flex items-center justify-between">
@@ -260,7 +260,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             <p className="text-[11px] text-purple-900/80 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
               Vetor Lutzomyia longipalpis. Triagem TR DPP e confirmação ELISA/IAL com inquérito censitário.
             </p>
-            <div className="mt-2 text-[10px] text-purple-800/80 dark:text-slate-500 flex items-center gap-1.5 font-medium border-t border-purple-200/80 pt-1.5">
+            <div className="mt-2 text-[10px] text-purple-800/80 dark:text-slate-400 flex items-center gap-1.5 font-medium border-t border-purple-200/80 dark:border-slate-700 pt-1.5">
               <span>{casosAno.filter(c => c.agravo === 'Leishmaniose' && c.resultadoFinal === 'Positivo').length} reagentes</span>
               <span aria-hidden="true" className="text-purple-400">·</span>
               <span>Encoleiramento Scalibor</span>
@@ -272,8 +272,8 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             onClick={() => onSelectAgravo(selectedAgravo === 'Leptospirose' ? 'Todos' : 'Leptospirose')}
             className={`p-3.5 rounded-xl cursor-pointer transition-all hover:shadow-md group shadow-xs ${
               selectedAgravo === 'Leptospirose'
-                ? 'border-2 border-sky-500 ring-2 ring-sky-400/40 bg-gradient-to-br from-[#e0f2fe] to-[#bae6fd] dark:bg-sky-950/40'
-                : 'border border-sky-300/90 dark:border-slate-800 bg-gradient-to-br from-[#f0f9ff] via-[#e0f2fe] to-[#bae6fd]/40 dark:bg-slate-900 hover:border-sky-500'
+                ? 'border-2 border-sky-500 ring-2 ring-sky-400/40 bg-gradient-to-br from-[#e0f2fe] to-[#bae6fd] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 dark:border-sky-500'
+                : 'border border-sky-300/90 dark:border-slate-700 bg-gradient-to-br from-[#f0f9ff] via-[#e0f2fe] to-[#bae6fd]/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 hover:border-sky-500'
             }`}
           >
             <div className="flex items-center justify-between">
@@ -287,7 +287,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             <p className="text-[11px] text-sky-900/80 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
               Bactéria Leptospira interrogans. Exame MAT com identificação de sorovares de roedores.
             </p>
-            <div className="mt-2 text-[10px] text-sky-800/80 dark:text-slate-500 flex items-center gap-1.5 font-medium border-t border-sky-200/80 pt-1.5">
+            <div className="mt-2 text-[10px] text-sky-800/80 dark:text-slate-400 flex items-center gap-1.5 font-medium border-t border-sky-200/80 dark:border-slate-700 pt-1.5">
               <span>{casosAno.filter(c => c.agravo === 'Leptospirose' && c.resultadoFinal === 'Positivo').length} reagentes</span>
               <span aria-hidden="true" className="text-sky-400">·</span>
               <span>Desratização focal</span>
@@ -299,8 +299,8 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             onClick={() => onSelectAgravo(selectedAgravo === 'Raiva' ? 'Todos' : 'Raiva')}
             className={`p-3.5 rounded-xl cursor-pointer transition-all hover:shadow-md group shadow-xs ${
               selectedAgravo === 'Raiva'
-                ? 'border-2 border-rose-500 ring-2 ring-rose-400/40 bg-gradient-to-br from-[#ffe4e6] to-[#fecdd3] dark:bg-rose-950/40'
-                : 'border border-rose-300/90 dark:border-slate-800 bg-gradient-to-br from-[#fff1f2] via-[#ffe4e6] to-[#fecdd3]/40 dark:bg-slate-900 hover:border-rose-500'
+                ? 'border-2 border-rose-500 ring-2 ring-rose-400/40 bg-gradient-to-br from-[#ffe4e6] to-[#fecdd3] dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 dark:border-rose-500'
+                : 'border border-rose-300/90 dark:border-slate-700 bg-gradient-to-br from-[#fff1f2] via-[#ffe4e6] to-[#fecdd3]/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 hover:border-rose-500'
             }`}
           >
             <div className="flex items-center justify-between">
@@ -314,7 +314,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             <p className="text-[11px] text-rose-900/80 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
               Coleta de quirópteros caídos e profilaxia de cães/gatos agressores. IFD no IAL.
             </p>
-            <div className="mt-2 text-[10px] text-rose-800/80 dark:text-slate-500 flex items-center gap-1.5 font-medium border-t border-rose-200/80 pt-1.5">
+            <div className="mt-2 text-[10px] text-rose-800/80 dark:text-slate-400 flex items-center gap-1.5 font-medium border-t border-rose-200/80 dark:border-slate-700 pt-1.5">
               <span>100% Sorocaba</span>
               <span aria-hidden="true" className="text-rose-400">·</span>
               <span>Bloqueio vacinal preventivo</span>

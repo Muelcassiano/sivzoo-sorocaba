@@ -40,34 +40,232 @@
   filter: brightness(0.7) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
 }
 
-/* ── Alto Contraste Profissional (WCAG AAA) ── */
+/* ══════════════════════════════════════════════════════════
+   MODO ESCURO — normalização de superfícies e campos
+   (aplica-se somente quando <html class="dark">)
+   ══════════════════════════════════════════════════════════ */
+.dark {
+  color-scheme: dark;
+}
+
+/* Campos de formulário legíveis em qualquer tela escura */
+.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+.dark select,
+.dark textarea {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.dark select option {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}
+
+/* Painéis que ainda usavam branco puro no escuro */
+.dark [class~="bg-white"],
+.dark [class~="bg-slate-50"],
+.dark [class~="bg-slate-100"],
+.dark [class~="bg-slate-200"] {
+  background-color: #1e293b;
+}
+
+/* Textos escuros fixos que sumiam sobre superfícies escuras */
+.dark [class~="text-slate-950"],
+.dark [class~="text-slate-900"],
+.dark [class~="text-slate-800"] {
+  color: #f1f5f9;
+}
+
+.dark [class~="text-slate-700"] {
+  color: #e2e8f0;
+}
+
+.dark [class~="text-slate-600"] {
+  color: #cbd5e1;
+}
+
+.dark [class*="text-[#"] {
+  color: #e2e8f0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ALTO CONTRASTE REAL (WCAG AAA)
+   Claro: branco / preto / azul institucional
+   Escuro: preto / branco / amarelo
+   ══════════════════════════════════════════════════════════ */
 .high-contrast {
-  --sivz-bg-body: #000000;
-  --sivz-bg-surface: #000000;
-  --sivz-text-primary: #ffffff;
-  --sivz-text-secondary: #ffff00;
-  --sivz-border: #ffffff;
-  --sivz-shadow: none;
+  --hc-bg: #ffffff;
+  --hc-surface: #ffffff;
+  --hc-surface-alt: #f4f6f9;
+  --hc-text: #000000;
+  --hc-muted: #1a1a1a;
+  --hc-border: #000000;
+  --hc-accent: #003087;
+  --hc-accent-contrast: #ffffff;
+  --hc-link: #002b8a;
+  --hc-danger: #9e0018;
+  --hc-success: #005c2e;
+  --hc-warning: #6b3500;
+  --hc-info: #0033a0;
+  --hc-purple: #4b0082;
 
-  --sivz-success: #00ff00;
-  --sivz-warning: #ffff00;
-  --sivz-danger: #ff0000;
-  --sivz-info: #00ffff;
+  background-color: var(--hc-bg) !important;
+  color: var(--hc-text) !important;
 }
 
-.high-contrast.light {
-  --sivz-bg-body: #ffffff;
-  --sivz-bg-surface: #ffffff;
-  --sivz-text-primary: #000000;
-  --sivz-text-secondary: #0000ff;
-  --sivz-border: #000000;
-  --sivz-shadow: none;
-
-  --sivz-success: #008000;
-  --sivz-warning: #ff8000;
-  --sivz-danger: #ff0000;
-  --sivz-info: #0000ff;
+.dark .high-contrast {
+  --hc-bg: #000000;
+  --hc-surface: #000000;
+  --hc-surface-alt: #0a0a0a;
+  --hc-text: #ffffff;
+  --hc-muted: #f2f2f2;
+  --hc-border: #ffffff;
+  --hc-accent: #ffe600;
+  --hc-accent-contrast: #000000;
+  --hc-link: #79e6ff;
+  --hc-danger: #ff9a9a;
+  --hc-success: #74ffab;
+  --hc-warning: #ffe600;
+  --hc-info: #79e6ff;
+  --hc-purple: #d9a6ff;
 }
+
+/* Remove todo efeito decorativo (degradês, sombras e transições) */
+.high-contrast *,
+.high-contrast *::before,
+.high-contrast *::after {
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transition: none !important;
+}
+
+/* Toda superfície com cor de fundo vira painel de alto contraste */
+.high-contrast [class*="bg-"] {
+  background-color: var(--hc-surface) !important;
+}
+
+/* Toda borda existente fica espessa e visível */
+.high-contrast [class*="border"] {
+  border-color: var(--hc-border) !important;
+}
+
+/* Texto base */
+.high-contrast :where(p, span, div, li, dt, dd, label, td, th, strong, small) {
+  color: var(--hc-text) !important;
+}
+
+/* Títulos em destaque */
+.high-contrast[class] h1,
+.high-contrast[class] h2,
+.high-contrast[class] h3,
+.high-contrast[class] h4,
+.high-contrast[class] h5,
+.high-contrast[class] h6 {
+  color: var(--hc-accent) !important;
+}
+
+/* Links sempre sublinhados */
+.high-contrast[class] a {
+  color: var(--hc-link) !important;
+  text-decoration: underline !important;
+}
+
+/* Cores semânticas continuam distinguíveis */
+.high-contrast [class*="text-rose-"],
+.high-contrast [class*="text-red-"] { color: var(--hc-danger) !important; }
+
+.high-contrast [class*="text-emerald-"],
+.high-contrast [class*="text-green-"] { color: var(--hc-success) !important; }
+
+.high-contrast [class*="text-amber-"],
+.high-contrast [class*="text-orange-"],
+.high-contrast [class*="text-yellow-"] { color: var(--hc-warning) !important; }
+
+.high-contrast [class*="text-blue-"],
+.high-contrast [class*="text-sky-"],
+.high-contrast [class*="text-cyan-"] { color: var(--hc-info) !important; }
+
+.high-contrast [class*="text-purple-"],
+.high-contrast [class*="text-violet-"] { color: var(--hc-purple) !important; }
+
+/* Botões com contorno forte */
+.high-contrast button {
+  background-color: var(--hc-surface) !important;
+  color: var(--hc-text) !important;
+  border: 2px solid var(--hc-border) !important;
+}
+
+.high-contrast button:hover,
+.high-contrast button:focus-visible {
+  background-color: var(--hc-accent) !important;
+  color: var(--hc-accent-contrast) !important;
+}
+
+/* Campos de formulário */
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea {
+  background-color: var(--hc-surface) !important;
+  color: var(--hc-text) !important;
+  border: 2px solid var(--hc-border) !important;
+}
+
+.high-contrast input::placeholder,
+.high-contrast textarea::placeholder {
+  color: var(--hc-muted) !important;
+  opacity: 1;
+}
+
+.high-contrast select option {
+  background-color: var(--hc-surface);
+  color: var(--hc-text);
+}
+
+/* Tabelas: cabeçalho invertido para leitura imediata */
+.high-contrast[class] th {
+  background-color: var(--hc-accent) !important;
+  color: var(--hc-accent-contrast) !important;
+  border: 1px solid var(--hc-border) !important;
+}
+
+.high-contrast td {
+  border: 1px solid var(--hc-border) !important;
+}
+
+/* Tarjas institucionais */
+.high-contrast[class] header,
+.high-contrast[class] footer,
+.high-contrast[class] aside {
+  background-color: var(--hc-surface-alt) !important;
+  border-color: var(--hc-border) !important;
+}
+
+.high-contrast[class] header { border-bottom: 3px solid var(--hc-border) !important; }
+.high-contrast[class] footer { border-top: 3px solid var(--hc-border) !important; }
+.high-contrast[class] aside { border-bottom: 3px solid var(--hc-border) !important; }
+
+/* Gráfico: eixos e rótulos legíveis */
+.high-contrast svg text { fill: var(--hc-text) !important; }
+.high-contrast svg line { stroke: var(--hc-border) !important; }
+
+/* Foco bem visível */
+.high-contrast *:focus-visible {
+  outline: 3px solid var(--hc-accent) !important;
+  outline-offset: 2px !important;
+}
+
+/* Fundo do documento acompanha o alto contraste */
+html.dark { background-color: #0f172a; }
+html.dark:has(.high-contrast) { background-color: #000000; }
+html:not(.dark):has(.high-contrast) { background-color: #ffffff; }
 
 /* ── Focus visible para acessibilidade ── */
 *:focus-visible {
