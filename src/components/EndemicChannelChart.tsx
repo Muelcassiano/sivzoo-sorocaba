@@ -181,12 +181,12 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
     return allWeeks;
   }, [activeDataset, selectedAgravo, viewType, selectedYear, periodoMensal, periodoSemanal, baselineConfig]);
 
-  // Scaled dimensions for the SVG Line Chart
-  const svgWidth = 920;
-  const svgHeight = 320;
+  // Scaled dimensions for the SVG Line Chart - menor largura para caber na tela
+  const svgWidth = 650;
+  const svgHeight = 280;
   const padLeft = 45;
-  const padRight = 30;
-  const padTop = 30;
+  const padRight = 25;
+  const padTop = 25;
   const padBottom = 40;
 
   const chartW = svgWidth - padLeft - padRight;
@@ -309,9 +309,9 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
   const isAlert = latestPoint && latestPoint.realCount > latestPoint.alerta && !isEpidemic;
 
   return (
-    <div className="bg-gradient-to-b from-[#f8fbfe] via-[#f1f6fc] to-[#eaf2fa] dark:from-slate-900 dark:to-slate-900 border border-[#b8d4f0] dark:border-slate-800 rounded-xl p-5 shadow-sm transition-colors">
+    <div className={`bg-gradient-to-b from-[#f8fbfe] via-[#f1f6fc] to-[#eaf2fa] dark:from-[#0f172a] dark:via-[#0f172a] dark:to-[#1e293b] border border-[#b8d4f0] dark:border-slate-700 rounded-xl p-4 sm:p-5 shadow-sm transition-colors`}>
       {/* Chart Top Header & Controls */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#cbdff2] dark:border-slate-800">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#cbdff2] dark:border-slate-700">
         <div>
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
@@ -330,7 +330,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
         {/* Global Selectors: Year, Agravo, and View Type */}
         <div className="flex flex-wrap items-center gap-2.5">
           {/* Year Selector (2019 to 2026) */}
-          <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-lg border border-[#b8d4f0] dark:border-slate-700 shadow-2xs">
+          <div className="flex items-center gap-1.5 bg-white dark:bg-[#1e293b] px-2.5 py-1 rounded-lg border border-[#b8d4f0] dark:border-slate-700 shadow-2xs">
             <Calendar className="w-3.5 h-3.5 text-blue-600 dark:text-slate-400" />
             <span className="text-xs font-bold text-[#002b5c] dark:text-slate-300">Ano:</span>
             <select
@@ -353,7 +353,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
           <select
             value={selectedAgravo}
             onChange={(e) => handleAgravoChange(e.target.value as any)}
-            className="bg-white dark:bg-slate-800 border border-[#b8d4f0] dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs font-bold text-[#002b5c] dark:text-slate-200 focus:outline-hidden cursor-pointer shadow-2xs"
+            className="bg-white dark:bg-[#1e293b] border border-[#b8d4f0] dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs font-bold text-[#002b5c] dark:text-slate-200 focus:outline-hidden cursor-pointer shadow-2xs"
           >
             <option value="Todos">Todos os Agravos ({activeDataset.length})</option>
             <option value="Esporotricose">Esporotricose ({activeDataset.filter(c => c.agravo === 'Esporotricose').length})</option>
@@ -363,7 +363,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
           </select>
 
           {/* View Mode Toggle: Mensal (Default) vs Semanal */}
-          <div className="flex items-center bg-[#dce8f7] dark:bg-slate-800 p-0.5 rounded-lg border border-[#b8d4f0] dark:border-slate-700 text-xs">
+          <div className="flex items-center bg-[#dce8f7] dark:bg-[#1e293b] p-0.5 rounded-lg border border-[#b8d4f0] dark:border-slate-700 text-xs">
             <button
               onClick={() => setViewType('mensal')}
               className={`px-3 py-1 rounded font-bold transition-all cursor-pointer ${
@@ -400,7 +400,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 className={`px-2.5 py-1 text-xs rounded font-medium cursor-pointer transition-colors ${
                   periodoMensal === 'ano'
                     ? 'bg-[#002b5c] text-white font-bold shadow-2xs'
-                    : 'bg-[#e2ecf7] dark:bg-slate-800 text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
+                    : 'bg-[#e2ecf7] dark:bg-[#1e293b] text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
                 }`}
               >
                 Ano Completo (Jan - Dez)
@@ -410,7 +410,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 className={`px-2.5 py-1 text-xs rounded font-medium cursor-pointer transition-colors ${
                   periodoMensal === 'maior_incidencia'
                     ? 'bg-[#002b5c] text-white font-bold shadow-2xs'
-                    : 'bg-[#e2ecf7] dark:bg-slate-800 text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
+                    : 'bg-[#e2ecf7] dark:bg-[#1e293b] text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
                 }`}
               >
                 Maior Incidência (Mar - Jul)
@@ -420,7 +420,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 className={`px-2.5 py-1 text-xs rounded font-medium cursor-pointer transition-colors ${
                   periodoMensal === 'recente'
                     ? 'bg-[#002b5c] text-white font-bold shadow-2xs'
-                    : 'bg-[#e2ecf7] dark:bg-slate-800 text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
+                    : 'bg-[#e2ecf7] dark:bg-[#1e293b] text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
                 }`}
               >
                 Último Trimestre Notificado (Mai - Jul)
@@ -433,7 +433,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 className={`px-2.5 py-1 text-xs rounded font-medium cursor-pointer transition-colors ${
                   periodoSemanal === 'ano'
                     ? 'bg-[#002b5c] text-white font-bold shadow-2xs'
-                    : 'bg-[#e2ecf7] dark:bg-slate-800 text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
+                    : 'bg-[#e2ecf7] dark:bg-[#1e293b] text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
                 }`}
               >
                 Ano Completo (SE 01 - SE 30)
@@ -443,7 +443,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 className={`px-2.5 py-1 text-xs rounded font-medium cursor-pointer transition-colors ${
                   periodoSemanal === 'pico'
                     ? 'bg-[#002b5c] text-white font-bold shadow-2xs'
-                    : 'bg-[#e2ecf7] dark:bg-slate-800 text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
+                    : 'bg-[#e2ecf7] dark:bg-[#1e293b] text-slate-800 dark:text-slate-300 hover:bg-[#d4e4f5] border border-[#cbdff2]'
                 }`}
               >
                 Pico Epidemiológico (SE 08 - SE 22)
@@ -453,7 +453,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 className={`px-2.5 py-1 text-xs rounded font-medium cursor-pointer transition-colors ${
                   periodoSemanal === 'recentes'
                     ? 'bg-amber-600 text-white font-semibold'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    : 'bg-slate-100 dark:bg-[#1e293b] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:#334155'
                 }`}
               >
                 Semanas Recentes (SE 23 - SE 30)
@@ -465,19 +465,19 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
         {/* Status Badge */}
         <div className="flex items-center gap-2">
           {totalCasosFiltro === 0 ? (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-[#1e293b] dark:text-slate-300 border border-slate-300 dark:border-slate-700">
               0 Notificações Registradas ({selectedYear})
             </span>
           ) : isEpidemic ? (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border border-rose-300 dark:border-rose-800">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-rose-100 text-rose-800 dark:bg-[#7f1d1d] dark:text-rose-300 border border-rose-300 dark:border-slate-700">
               Acima do Limiar Epidêmico
             </span>
           ) : isAlert ? (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-[#78350f] dark:text-amber-300 border border-amber-300 dark:border-slate-700">
               Faixa de Alerta
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-[#064e3b] dark:text-emerald-300 border border-emerald-300 dark:border-slate-700">
               Dentro do Esperado para Sorocaba
             </span>
           )}
@@ -680,17 +680,17 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
       </div>
 
       {/* Summary Footer */}
-      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
         <div>
-          <span>Total no Recorte: <strong className="text-slate-800 dark:text-slate-200 font-mono font-semibold">{totalCasosFiltro} casos</strong></span>
+          <span>Total no Recorte: <strong className="text-slate-800 dark:text-slate-100 font-mono font-semibold">{totalCasosFiltro} casos</strong></span>
           <span className="mx-2" aria-hidden="true">·</span>
-          <span>Ano Selecionado: <strong className="text-slate-800 dark:text-slate-200">{selectedYear}</strong></span>
+          <span>Ano Selecionado: <strong className="text-slate-800 dark:text-slate-100">{selectedYear}</strong></span>
         </div>
         <div className="text-[11px]">
           {selectedYear === 2026 ? (
             <span>Base consolidada oficial (01/Jan/2026 a 23/Jul/2026 · Prefeitura de Sorocaba)</span>
           ) : totalCasosFiltro === 0 ? (
-            <span className="text-amber-600 dark:text-amber-400 font-medium">Sem registros cadastrados para o ano de {selectedYear} na base de dados</span>
+            <span className="text-amber-500 dark:text-amber-400 font-medium">Sem registros cadastrados para o ano de {selectedYear} na base de dados</span>
           ) : (
             <span>Registros consolidados para {selectedYear}</span>
           )}

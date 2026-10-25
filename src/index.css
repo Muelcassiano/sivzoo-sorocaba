@@ -7,15 +7,15 @@
     font-size: 14px;
     transition: font-size 0.15s ease-in-out;
   }
-  
+
   html.font-normal {
     font-size: 14px;
   }
-  
+
   html.font-large {
     font-size: 16.5px;
   }
-  
+
   html.font-xlarge {
     font-size: 19.5px;
   }
@@ -38,4 +38,65 @@
 
 .dark-map-tiles {
   filter: brightness(0.7) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+/* ── Alto Contraste Profissional (WCAG AAA) ── */
+.high-contrast {
+  --sivz-bg-body: #000000;
+  --sivz-bg-surface: #000000;
+  --sivz-text-primary: #ffffff;
+  --sivz-text-secondary: #ffff00;
+  --sivz-border: #ffffff;
+  --sivz-shadow: none;
+
+  --sivz-success: #00ff00;
+  --sivz-warning: #ffff00;
+  --sivz-danger: #ff0000;
+  --sivz-info: #00ffff;
+}
+
+.high-contrast.light {
+  --sivz-bg-body: #ffffff;
+  --sivz-bg-surface: #ffffff;
+  --sivz-text-primary: #000000;
+  --sivz-text-secondary: #0000ff;
+  --sivz-border: #000000;
+  --sivz-shadow: none;
+
+  --sivz-success: #008000;
+  --sivz-warning: #ff8000;
+  --sivz-danger: #ff0000;
+  --sivz-info: #0000ff;
+}
+
+/* ── Focus visible para acessibilidade ── */
+*:focus-visible {
+  outline: 3px solid #003875;
+  outline-offset: 2px;
+}
+
+/* ── Skip link ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Print-friendly ── */
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* ── Container do gráfico responsivo ── */
+.chart-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
