@@ -102,7 +102,7 @@
    ══════════════════════════════════════════════════════════ */
 .high-contrast {
   --hc-bg: #ffffff;
-  --hc-surface: #ffffff;
+  --hc-surface: #eef4fb;
   --hc-surface-alt: #f4f6f9;
   --hc-text: #000000;
   --hc-muted: #1a1a1a;
@@ -260,6 +260,182 @@
 .high-contrast *:focus-visible {
   outline: 3px solid var(--hc-accent) !important;
   outline-offset: 2px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   REFINAMENTO DO ALTO CONTRASTE — SOMENTE MODO CLARO
+   O alto contraste escuro permanece exatamente como aprovado.
+   ══════════════════════════════════════════════════════════ */
+html:not(.dark) .high-contrast[class] {
+  background-color: #ffffff !important;
+}
+
+/* Tarjas institucionais em azul municipal */
+html:not(.dark) .high-contrast[class] header,
+html:not(.dark) .high-contrast[class] aside,
+html:not(.dark) .high-contrast[class] footer {
+  --hc-text: #ffffff;
+  --hc-muted: #dbeafe;
+  background-color: #003875 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] aside {
+  background-color: #00224a !important;
+}
+
+html:not(.dark) .high-contrast[class] footer {
+  border-top: 4px solid #ffd400 !important;
+}
+
+/* Textos e ícones das tarjas ficam brancos */
+html:not(.dark) .high-contrast[class] header :where(p, span, div, li, label, strong, small, a, button),
+html:not(.dark) .high-contrast[class] aside :where(p, span, div, li, label, strong, small, a, button),
+html:not(.dark) .high-contrast[class] footer :where(p, span, div, li, label, strong, small, a, button),
+html:not(.dark) .high-contrast[class] header svg,
+html:not(.dark) .high-contrast[class] aside svg,
+html:not(.dark) .high-contrast[class] footer svg {
+  color: #ffffff !important;
+}
+
+/* Botões das tarjas: contorno branco sobre o azul */
+html:not(.dark) .high-contrast[class] header button:not([aria-label="Página Inicial SIVZOO Sorocaba"]),
+html:not(.dark) .high-contrast[class] aside button {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+html:not(.dark) .high-contrast[class] header button[aria-label="Página Inicial SIVZOO Sorocaba"] {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+/* Menu suspenso da Área Técnica: painel branco legível */
+html:not(.dark) .high-contrast[class] header div[class*="absolute"] {
+  --hc-text: #000000;
+  --hc-muted: #1a1a1a;
+  background-color: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] header div[class*="absolute"] :where(p, span, div, li, label, strong, small, a, button),
+html:not(.dark) .high-contrast[class] header div[class*="absolute"] svg {
+  color: #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] header div[class*="absolute"] button {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] header div[class*="absolute"] button:hover,
+html:not(.dark) .high-contrast[class] header div[class*="absolute"] button:focus-visible {
+  background-color: #ffd400 !important;
+  color: #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] header div[class*="absolute"] button:hover :where(span, div, svg),
+html:not(.dark) .high-contrast[class] header div[class*="absolute"] button:focus-visible :where(span, div, svg) {
+  color: #000000 !important;
+}
+
+/* Item ativo do menu e controles de acessibilidade em amarelo */
+html:not(.dark) .high-contrast[class] header button[aria-current="page"],
+html:not(.dark) .high-contrast[class] aside button[aria-pressed="true"] {
+  background-color: #ffd400 !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] header button[aria-current="page"] :where(span, div, svg),
+html:not(.dark) .high-contrast[class] aside button[aria-pressed="true"] :where(span, div, svg) {
+  color: #000000 !important;
+}
+
+/* Skip link visível ao receber foco */
+html:not(.dark) .high-contrast[class] aside a {
+  color: #ffffff !important;
+}
+
+html:not(.dark) .high-contrast[class] aside a:focus,
+html:not(.dark) .high-contrast[class] aside a:focus-visible {
+  background-color: #ffd400 !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+/* Conteúdo: botões brancos, campos brancos e destaque amarelo */
+html:not(.dark) .high-contrast[class] button {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] button:hover,
+html:not(.dark) .high-contrast[class] button:focus-visible {
+  background-color: #ffd400 !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] button:hover :where(span, div, svg),
+html:not(.dark) .high-contrast[class] button:focus-visible :where(span, div, svg) {
+  color: #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] input:not([type="checkbox"]):not([type="radio"]),
+html:not(.dark) .high-contrast[class] select,
+html:not(.dark) .high-contrast[class] textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html:not(.dark) .high-contrast[class] select option {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Títulos com sublinhado amarelo institucional */
+html:not(.dark) .high-contrast[class] h2,
+html:not(.dark) .high-contrast[class] h3 {
+  color: #003087 !important;
+  text-decoration-line: underline !important;
+  text-decoration-thickness: 3px !important;
+  text-decoration-color: #ffd400 !important;
+  text-underline-offset: 4px !important;
+}
+
+/* Cartões principais com faixa superior amarela */
+html:not(.dark) .high-contrast[class] div[class*="rounded-xl"][class*="border"][class*="shadow"] {
+  border-top: 4px solid #ffd400 !important;
+}
+
+/* Linhas da tabela alternadas para facilitar a leitura */
+html:not(.dark) .high-contrast[class] tbody tr:nth-child(odd) {
+  background-color: #eef4fb !important;
+}
+
+html:not(.dark) .high-contrast[class] tbody tr:nth-child(even) {
+  background-color: #ffffff !important;
+}
+
+/* Indicadores coloridos da legenda do gráfico continuam visíveis */
+html:not(.dark) .high-contrast[class] span[class~="border-rose-500"] {
+  border-color: #e11d48 !important;
+}
+
+html:not(.dark) .high-contrast[class] span[class~="border-amber-500"] {
+  border-color: #d97706 !important;
+}
+
+html:not(.dark) .high-contrast[class] span[class~="bg-emerald-600"] {
+  background-color: #059669 !important;
+}
+
+html:not(.dark) .high-contrast[class] span[class~="bg-blue-600"] {
+  background-color: #2563eb !important;
 }
 
 /* Fundo do documento acompanha o alto contraste */

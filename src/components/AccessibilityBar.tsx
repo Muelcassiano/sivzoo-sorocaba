@@ -46,6 +46,7 @@ export const AccessibilityBar: React.FC<AccessibilityBarProps> = ({
               className={`px-1.5 py-0.5 text-[11px] font-bold rounded cursor-pointer ${fontSize === 'normal' ? 'bg-white text-[#00224a]' : 'text-blue-100 hover:bg-white/15'}`}
               title="Tamanho padrão de texto"
               aria-label="Tamanho de texto normal"
+              aria-pressed={fontSize === 'normal'}
             >
               A
             </button>
@@ -54,6 +55,7 @@ export const AccessibilityBar: React.FC<AccessibilityBarProps> = ({
               className={`px-1.5 py-0.5 text-xs font-bold rounded cursor-pointer ${fontSize === 'large' ? 'bg-white text-[#00224a]' : 'text-blue-100 hover:bg-white/15'}`}
               title="Aumentar texto (+15%)"
               aria-label="Aumentar texto"
+              aria-pressed={fontSize === 'large'}
             >
               A+
             </button>
@@ -62,6 +64,7 @@ export const AccessibilityBar: React.FC<AccessibilityBarProps> = ({
               className={`px-1.5 py-0.5 text-sm font-bold rounded cursor-pointer ${fontSize === 'xlarge' ? 'bg-white text-[#00224a]' : 'text-blue-100 hover:bg-white/15'}`}
               title="Aumentar texto máximo (+30%)"
               aria-label="Texto muito grande"
+              aria-pressed={fontSize === 'xlarge'}
             >
               A++
             </button>

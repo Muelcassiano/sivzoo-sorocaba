@@ -66,6 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <nav className="hidden md:flex items-center gap-2 lg:gap-3 text-sm font-medium" aria-label="Menu Principal">
             <button
               onClick={() => setActiveTab('dashboard')}
+              aria-current={activeTab === 'dashboard' ? 'page' : undefined}
               className={`pb-1 text-xs sm:text-sm font-semibold transition-all cursor-pointer px-3 py-1.5 rounded-t-md border-b-2 ${
                 activeTab === 'dashboard'
                   ? 'border-amber-400 text-white bg-white/10 shadow-inner font-bold'
@@ -77,6 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => setActiveTab('investigacoes')}
+              aria-current={activeTab === 'investigacoes' ? 'page' : undefined}
               className={`pb-1 text-xs sm:text-sm font-semibold transition-all cursor-pointer px-3 py-1.5 rounded-t-md border-b-2 flex items-center gap-1.5 ${
                 activeTab === 'investigacoes'
                   ? 'border-amber-400 text-white bg-white/10 shadow-inner font-bold'
@@ -91,6 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => setActiveTab('mapa')}
+              aria-current={activeTab === 'mapa' ? 'page' : undefined}
               className={`pb-1 text-xs sm:text-sm font-semibold transition-all cursor-pointer px-3 py-1.5 rounded-t-md border-b-2 ${
                 activeTab === 'mapa'
                   ? 'border-amber-400 text-white bg-white/10 shadow-inner font-bold'
@@ -102,6 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => setActiveTab('alertas-ve')}
+              aria-current={activeTab === 'alertas-ve' ? 'page' : undefined}
               className={`pb-1 text-xs sm:text-sm font-semibold transition-all cursor-pointer px-3 py-1.5 rounded-t-md border-b-2 flex items-center gap-1.5 ${
                 activeTab === 'alertas-ve'
                   ? 'border-rose-400 text-white bg-rose-950/50 shadow-inner font-bold'
@@ -218,24 +222,28 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="md:hidden flex items-center justify-between overflow-x-auto px-4 py-2.5 border-t border-[#002b5c] dark:border-slate-800 text-xs bg-[#00224a] dark:bg-slate-900 gap-4">
         <button
           onClick={() => setActiveTab('dashboard')}
+          aria-current={activeTab === 'dashboard' ? 'page' : undefined}
           className={`whitespace-nowrap py-1 ${activeTab === 'dashboard' ? 'text-amber-300 dark:text-emerald-400 font-bold' : 'text-blue-100/80 dark:text-slate-400'}`}
         >
           Painel Geral
         </button>
         <button
           onClick={() => setActiveTab('investigacoes')}
+          aria-current={activeTab === 'investigacoes' ? 'page' : undefined}
           className={`whitespace-nowrap py-1 ${activeTab === 'investigacoes' ? 'text-amber-300 dark:text-emerald-400 font-bold' : 'text-blue-100/80 dark:text-slate-400'}`}
         >
           Fichas (582)
         </button>
         <button
           onClick={() => setActiveTab('mapa')}
+          aria-current={activeTab === 'mapa' ? 'page' : undefined}
           className={`whitespace-nowrap py-1 ${activeTab === 'mapa' ? 'text-amber-300 dark:text-emerald-400 font-bold' : 'text-blue-100/80 dark:text-slate-400'}`}
         >
           Mapa de Focos
         </button>
         <button
           onClick={() => setActiveTab('alertas-ve')}
+          aria-current={activeTab === 'alertas-ve' ? 'page' : undefined}
           className={`whitespace-nowrap py-1 ${activeTab === 'alertas-ve' ? 'text-rose-300 dark:text-rose-400 font-bold' : 'text-blue-100/80 dark:text-slate-400'}`}
         >
           Alertas VE ({totalHumanLesionsCount})

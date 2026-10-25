@@ -74,6 +74,20 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
   const [periodoSemanal, setPeriodoSemanal] = useState<PeriodoSemanalFilter>('ano');
   const [hoveredPoint, setHoveredPoint] = useState<PointData | null>(null);
 
+  // Ajuste exclusivo para telas pequenas: mantém o gráfico legível sem
+  // alterar em nada a visualização aprovada em telas grandes.
+  const [isCompactViewport, setIsCompactViewport] = useState<boolean>(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 639px)').matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)');
+    const handleViewportChange = () => setIsCompactViewport(mq.matches);
+    handleViewportChange();
+    mq.addEventListener('change', handleViewportChange);
+    return () => mq.removeEventListener('change', handleViewportChange);
+  }, []);
+
   // Active cases dataset strictly based on actual notifications for the selected year
   // If a year has no records in the database, it strictly returns []
   const activeDataset = useMemo(() => {
@@ -181,13 +195,15 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
     return allWeeks;
   }, [activeDataset, selectedAgravo, viewType, selectedYear, periodoMensal, periodoSemanal, baselineConfig]);
 
-  // Scaled dimensions for the SVG Line Chart - altura reduzida pela metade
-  const svgWidth = 650;
-  const svgHeight = 140;
-  const padLeft = 45;
-  const padRight = 25;
-  const padTop = 12;
-  const padBottom = 22;
+  // Dimensões do SVG: desktop mantém o desenho aprovado (650 × 140).
+  // No celular, usamos uma área de desenho mais estreita e alta para que
+  // fontes, pontos e linhas não sejam reduzidos junto com o container.
+  const svgWidth = isCompactViewport ? 360 : 650;
+  const svgHeight = isCompactViewport ? 210 : 140;
+  const padLeft = isCompactViewport ? 36 : 45;
+  const padRight = isCompactViewport ? 12 : 25;
+  const padTop = isCompactViewport ? 14 : 12;
+  const padBottom = isCompactViewport ? 46 : 22;
 
   const chartW = svgWidth - padLeft - padRight;
   const chartH = svgHeight - padTop - padBottom;
@@ -279,22 +295,22 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
   const pathReal = useMemo(() => {
     if (animatedPoints.length === 0) return '';
     return animatedPoints.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${getX(idx).toFixed(1)} ${getY(p.realCount).toFixed(1)}`).join(' ');
-  }, [animatedPoints, animatedMaxY]);
+  }, [animatedPoints, animatedMaxY, isCompactViewport]);
 
   const pathEsperado = useMemo(() => {
     if (animatedPoints.length === 0) return '';
     return animatedPoints.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${getX(idx).toFixed(1)} ${getY(p.esperado).toFixed(1)}`).join(' ');
-  }, [animatedPoints, animatedMaxY]);
+  }, [animatedPoints, animatedMaxY, isCompactViewport]);
 
   const pathAlerta = useMemo(() => {
     if (animatedPoints.length === 0) return '';
     return animatedPoints.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${getX(idx).toFixed(1)} ${getY(p.alerta).toFixed(1)}`).join(' ');
-  }, [animatedPoints, animatedMaxY]);
+  }, [animatedPoints, animatedMaxY, isCompactViewport]);
 
   const pathSuperior = useMemo(() => {
     if (animatedPoints.length === 0) return '';
     return animatedPoints.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${getX(idx).toFixed(1)} ${getY(p.limiteSuperior).toFixed(1)}`).join(' ');
-  }, [animatedPoints, animatedMaxY]);
+  }, [animatedPoints, animatedMaxY, isCompactViewport]);
 
   const yTicks = [0, Math.round(maxY * 0.33), Math.round(maxY * 0.66), maxY];
 
@@ -485,7 +501,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
       </div>
 
       {/* Chart Legend */}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 py-2 text-xs">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 py-2 text-[13px] sm:text-xs">
         <div className="flex items-center gap-2">
           <span className="w-4 h-0.5 border-t-2 border-dashed border-rose-500 inline-block" />
           <span className="text-slate-600 dark:text-slate-400">
@@ -535,7 +551,7 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 x={padLeft - 8}
                 y={getY(val) + 4}
                 textAnchor="end"
-                className="text-[10px] fill-slate-400 dark:fill-slate-300 font-mono"
+                className={`${isCompactViewport ? 'text-[11px]' : 'text-[10px]'} fill-slate-400 dark:fill-slate-300 font-mono`}
               >
                 {val}
               </text>
@@ -587,6 +603,12 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
             const cx = getX(idx);
             const cy = getY(p.realCount);
             const isHovered = hoveredPoint?.label === p.label;
+            const showXAxisLabel =
+              !isCompactViewport ||
+              points.length <= 12 ||
+              idx % 3 === 0 ||
+              idx === points.length - 1;
+            const xLabelY = padTop + chartH + (isCompactViewport ? 28 : 18);
 
             return (
               <g
@@ -631,18 +653,21 @@ export const EndemicChannelChart: React.FC<EndemicChannelChartProps> = ({
                 />
 
                 {/* X axis labels */}
-                <text
-                  x={cx}
-                  y={padTop + chartH + 18}
-                  textAnchor="middle"
-                  className={`text-[11px] font-sans font-medium transition-colors ${
-                    isHovered
-                      ? 'fill-blue-600 dark:fill-blue-400 font-bold'
-                      : 'fill-slate-500 dark:fill-slate-300'
-                  }`}
-                >
-                  {p.label}
-                </text>
+                {showXAxisLabel && (
+                  <text
+                    x={cx}
+                    y={xLabelY}
+                    textAnchor={isCompactViewport ? 'end' : 'middle'}
+                    transform={isCompactViewport ? `rotate(-40 ${cx} ${xLabelY})` : undefined}
+                    className={`${isCompactViewport ? 'text-[11.5px]' : 'text-[11px]'} font-sans font-medium transition-colors ${
+                      isHovered
+                        ? 'fill-blue-600 dark:fill-blue-400 font-bold'
+                        : 'fill-slate-500 dark:fill-slate-300'
+                    }`}
+                  >
+                    {p.label}
+                  </text>
+                )}
               </g>
             );
           })}
